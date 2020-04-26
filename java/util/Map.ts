@@ -1,4 +1,4 @@
-export class HashMap<T> {
+export class Map<T> {
     private obj: object;
 
     constructor() {
@@ -24,6 +24,12 @@ export class HashMap<T> {
     forEach(callback: (key: string, value: string) => void) {
         Object.keys(this.obj).forEach(key => {
             callback(key, this.obj[key]);
+        });
+    }
+
+    putAll(map: Map<T>) {
+        map.forEach((key, value) => {
+            this.obj[key] = value;
         });
     }
 }
